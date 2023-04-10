@@ -2,7 +2,12 @@ spring:
   datasource:
     url: jdbc:h2:mem:credit_application-system_db
     username: vini
-    password: 1234
+
+  jpa:
+    show-sql: true
+    hibernate:
+      properties:
+        hibernate.format_sql: true
   h2:
     console:
       enabled: true
