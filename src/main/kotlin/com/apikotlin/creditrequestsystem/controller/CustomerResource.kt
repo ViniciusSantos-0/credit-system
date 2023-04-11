@@ -5,6 +5,7 @@ import com.apikotlin.creditrequestsystem.dto.CustomerUpdateDTO
 import com.apikotlin.creditrequestsystem.dto.CustomerView
 import com.apikotlin.creditrequestsystem.entity.Customer
 import com.apikotlin.creditrequestsystem.service.impl.CustomerService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
@@ -25,7 +26,7 @@ class CustomerResource (
 ) {
 
     @PostMapping
-    fun saveCustomer(@RequestBody customerDTO: CustomerDTO): ResponseEntity<String> {
+    fun saveCustomer(@RequestBody @Valid customerDTO: CustomerDTO): ResponseEntity<String> {
         val savedCustomer = this.customerService.save(customerDTO.toEntity())
         return ResponseEntity.status(HttpStatus.CREATED).body("Customer ${savedCustomer.email} Savid!")
     }
@@ -42,7 +43,7 @@ class CustomerResource (
     }
 
     @PatchMapping
-    fun updateCustomer(@RequestParam(value = "customerId") id: Long, @RequestBody customerUpdateDTO: CustomerUpdateDTO): ResponseEntity<CustomerView> {
+    fun updateCustomer(@RequestParam(value = "customerId") id: Long, @RequestBody @Valid customerUpdateDTO: CustomerUpdateDTO): ResponseEntity<CustomerView> {
         val customer: Customer = this.customerService.findById(id)
         return ResponseEntity.status(HttpStatus.OK).body(CustomerView(this.customerService.save(customerUpdateDTO.toEntity(customer))))
     }
