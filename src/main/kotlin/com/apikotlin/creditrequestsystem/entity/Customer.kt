@@ -28,7 +28,7 @@ data class Customer(
     var address: Address = Address(),
 
     @Column(nullable = false)
-    var income: BigDecimal,
+    var income: BigDecimal = BigDecimal.ZERO,
 
     @OneToMany(fetch = FetchType.LAZY, cascade = arrayOf(CascadeType.REMOVE, CascadeType.PERSIST),
         mappedBy = "customer")
