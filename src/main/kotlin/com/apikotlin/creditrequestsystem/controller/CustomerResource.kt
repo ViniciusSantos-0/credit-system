@@ -42,7 +42,7 @@ class CustomerResource (
     }
 
     @PatchMapping
-    fun updateCustomer(@RequestParam(value = "customer.id") id: Long, @RequestBody customerUpdateDTO: CustomerUpdateDTO): ResponseEntity<CustomerView> {
+    fun updateCustomer(@RequestParam(value = "customerId") id: Long, @RequestBody customerUpdateDTO: CustomerUpdateDTO): ResponseEntity<CustomerView> {
         val customer: Customer = this.customerService.findById(id)
         return ResponseEntity.status(HttpStatus.OK).body(CustomerView(this.customerService.save(customerUpdateDTO.toEntity(customer))))
     }
