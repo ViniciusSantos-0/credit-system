@@ -1,4 +1,4 @@
-package com.apikotlin.creditrequestsystem.dto
+package com.apikotlin.creditrequestsystem.dto.request
 
 import com.apikotlin.creditrequestsystem.entity.Customer
 import jakarta.validation.constraints.NotEmpty
