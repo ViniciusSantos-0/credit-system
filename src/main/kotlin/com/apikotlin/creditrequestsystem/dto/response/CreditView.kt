@@ -1,4 +1,4 @@
-package com.apikotlin.creditrequestsystem.dto
+package com.apikotlin.creditrequestsystem.dto.response
 
 import com.apikotlin.creditrequestsystem.entity.Credit
 import com.apikotlin.creditrequestsystem.enummeration.Status

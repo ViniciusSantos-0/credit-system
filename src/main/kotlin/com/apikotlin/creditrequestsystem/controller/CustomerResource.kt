@@ -1,13 +1,12 @@
 package com.apikotlin.creditrequestsystem.controller
 
-import com.apikotlin.creditrequestsystem.dto.CustomerDTO
-import com.apikotlin.creditrequestsystem.dto.CustomerUpdateDTO
-import com.apikotlin.creditrequestsystem.dto.CustomerView
+import com.apikotlin.creditrequestsystem.dto.request.CustomerDTO
+import com.apikotlin.creditrequestsystem.dto.request.CustomerUpdateDTO
+import com.apikotlin.creditrequestsystem.dto.response.CustomerView
 import com.apikotlin.creditrequestsystem.entity.Customer
 import com.apikotlin.creditrequestsystem.service.impl.CustomerService
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
-import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping

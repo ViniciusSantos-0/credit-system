@@ -1,8 +1,8 @@
 package com.apikotlin.creditrequestsystem.controller
 
-import com.apikotlin.creditrequestsystem.dto.CreditDTO
-import com.apikotlin.creditrequestsystem.dto.CreditView
-import com.apikotlin.creditrequestsystem.dto.CreditViewList
+import com.apikotlin.creditrequestsystem.dto.request.CreditDTO
+import com.apikotlin.creditrequestsystem.dto.response.CreditView
+import com.apikotlin.creditrequestsystem.dto.response.CreditViewList
 import com.apikotlin.creditrequestsystem.entity.Credit
 import com.apikotlin.creditrequestsystem.service.impl.CreditService
 import jakarta.validation.Valid
@@ -32,7 +32,7 @@ class CreditResource(
 
     @GetMapping
     fun findAllbyCustomerId(@RequestParam(value = "customerId") customerId: Long):ResponseEntity <List<CreditViewList>>{
-       val creditViewList: List<CreditViewList> = this.creditService.findAllByCustomer(customerId).stream().map { credit: Credit -> CreditViewList(credit)}
+       val creditViewList: List<CreditViewList> = this.creditService.findAllByCustomer(customerId).stream().map { credit: Credit -> CreditViewList(credit) }
             .collect(Collectors.toList())
         return ResponseEntity.status(HttpStatus.OK).body(creditViewList)
     }
